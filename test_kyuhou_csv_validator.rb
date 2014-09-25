@@ -93,7 +93,7 @@ class KyuhouCsvValidatorTest < Test::Unit::TestCase
       check_082: '13',
       check_083: '32',
       check_084: '07',
-      check_085: '12345',
+      check_085: '123456789',
       check_086: 'かき くけこ',
       check_087: '123456789 ',
       check_088: '12345 ',
