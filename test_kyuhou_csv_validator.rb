@@ -1,10 +1,5 @@
 # coding: utf-8
 
-# Copyright (c) 2014 Masahiro Arakane
-# 以下の条件を満たす限り、自由な複製・配布・修正を無制限に許可する。
-#  - 上記の著作権表示と本許諾書を、ソフトウェアの複製または重要な部分に記載する。
-#  - 本ソフトウェアは無保証である。自己責任で使用する。
-
 $:.unshift(File.expand_path(File.dirname(__FILE__)))
 require "kyuhou_csv_validator"
 require "test/unit"
@@ -30,10 +25,10 @@ class KyuhouCsvValidatorTest < Test::Unit::TestCase
       check_014: '支払い-太郎',
       check_015: '窓際係長 ',
       check_016: 'syubetu',
-      check_017: '12-345',
+      check_017: '-12345',
       check_018: '12-345',
-      check_019: '-12345',
-      check_020: '12345 ',
+      check_019: ' 12345',
+      check_020: '12345'*3,
       check_021: '12345あ',
       check_022: '1234 5',
       check_023: '9',
@@ -98,7 +93,7 @@ class KyuhouCsvValidatorTest < Test::Unit::TestCase
       check_082: '13',
       check_083: '32',
       check_084: '07',
-      check_085: '-12345',
+      check_085: '12345',
       check_086: 'かき くけこ',
       check_087: '123456789 ',
       check_088: '12345 ',
@@ -115,586 +110,108 @@ class KyuhouCsvValidatorTest < Test::Unit::TestCase
     }
   end
 
-  def test_check_001
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_002
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_003
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_004
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_005
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_006
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_007
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_008
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_009
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_010
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_011
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_012
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_013
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_014
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_015
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_016
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_017
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_018
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_019
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_020
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_021
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_022
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_023
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_024
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_025
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_026
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_027
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_028
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_029
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_030
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_031
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_032
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_033
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_034
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_035
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_036
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_037
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_038
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_039
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_040
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_041
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_042
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_043
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_044
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_045
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_046
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_047
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_048
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_049
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_050
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_051
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_052
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_053
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_054
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_055
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_056
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_057
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_058
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_059
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_060
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_061
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_062
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_063
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_064
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_065
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_067
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_068
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_069
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_070
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_071
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_072
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_073
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_074
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_075
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_076
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_077
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_078
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_079
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_080
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_081
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_082
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_083
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_084
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_085
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_086
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_087
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_088
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_089
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_090
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_091
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_092
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_093
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_094
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_095
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_096
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_097
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
-
-  def test_check_098
-    method_name = __method__.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[method_name.to_sym]
-    assert_equal false, @kd.send(method_name, @lineno, fixture)
-  end
+  def mock(method_name)
+    check_id = method_name.to_s.split('_')[1..-1].join('_')
+    fixture = @fixtures[check_id.to_sym]
+    assert_equal false, @kd.send(check_id, @lineno, fixture),
+      "fixture => #{fixture}"
+  end
+
+  def test_check_001; mock __method__; end
+  def test_check_002; mock __method__; end
+  def test_check_003; mock __method__; end
+  def test_check_004; mock __method__; end
+  def test_check_005; mock __method__; end
+  def test_check_006; mock __method__; end
+  def test_check_007; mock __method__; end
+  def test_check_008; mock __method__; end
+  def test_check_009; mock __method__; end
+  def test_check_011; mock __method__; end
+  def test_check_012; mock __method__; end
+  def test_check_013; mock __method__; end
+  def test_check_014; mock __method__; end
+  def test_check_015; mock __method__; end
+  def test_check_016; mock __method__; end
+  def test_check_017; mock __method__; end
+  def test_check_018; mock __method__; end
+  def test_check_019; mock __method__; end
+  def test_check_020; mock __method__; end
+  def test_check_021; mock __method__; end
+  def test_check_022; mock __method__; end
+  def test_check_023; mock __method__; end
+  def test_check_024; mock __method__; end
+  def test_check_025; mock __method__; end
+  def test_check_026; mock __method__; end
+  def test_check_027; mock __method__; end
+  def test_check_028; mock __method__; end
+  def test_check_029; mock __method__; end
+  def test_check_030; mock __method__; end
+  def test_check_031; mock __method__; end
+  def test_check_032; mock __method__; end
+  def test_check_033; mock __method__; end
+  def test_check_034; mock __method__; end
+  def test_check_035; mock __method__; end
+  def test_check_036; mock __method__; end
+  def test_check_037; mock __method__; end
+  def test_check_038; mock __method__; end
+  def test_check_039; mock __method__; end
+  def test_check_040; mock __method__; end
+  def test_check_041; mock __method__; end
+  def test_check_042; mock __method__; end
+  def test_check_043; mock __method__; end
+  def test_check_044; mock __method__; end
+  def test_check_045; mock __method__; end
+  def test_check_046; mock __method__; end
+  def test_check_047; mock __method__; end
+  def test_check_048; mock __method__; end
+  def test_check_049; mock __method__; end
+  def test_check_050; mock __method__; end
+  def test_check_051; mock __method__; end
+  def test_check_052; mock __method__; end
+  def test_check_053; mock __method__; end
+  def test_check_054; mock __method__; end
+  def test_check_055; mock __method__; end
+  def test_check_056; mock __method__; end
+  def test_check_057; mock __method__; end
+  def test_check_058; mock __method__; end
+  def test_check_059; mock __method__; end
+  def test_check_060; mock __method__; end
+  def test_check_061; mock __method__; end
+  def test_check_062; mock __method__; end
+  def test_check_063; mock __method__; end
+  def test_check_064; mock __method__; end
+  def test_check_065; mock __method__; end
+  def test_check_066; mock __method__; end
+  def test_check_067; mock __method__; end
+  def test_check_068; mock __method__; end
+  def test_check_069; mock __method__; end
+  def test_check_070; mock __method__; end
+  def test_check_071; mock __method__; end
+  def test_check_072; mock __method__; end
+  def test_check_073; mock __method__; end
+  def test_check_074; mock __method__; end
+  def test_check_075; mock __method__; end
+  def test_check_076; mock __method__; end
+  def test_check_077; mock __method__; end
+  def test_check_078; mock __method__; end
+  def test_check_079; mock __method__; end
+  def test_check_080; mock __method__; end
+  def test_check_081; mock __method__; end
+  def test_check_082; mock __method__; end
+  def test_check_083; mock __method__; end
+  def test_check_084; mock __method__; end
+  def test_check_085; mock __method__; end
+  def test_check_086; mock __method__; end
+  def test_check_087; mock __method__; end
+  def test_check_088; mock __method__; end
+  def test_check_089; mock __method__; end
+  def test_check_090; mock __method__; end
+  def test_check_091; mock __method__; end
+  def test_check_092; mock __method__; end
+  def test_check_093; mock __method__; end
+  def test_check_094; mock __method__; end
+  def test_check_095; mock __method__; end
+  def test_check_096; mock __method__; end
+  def test_check_097; mock __method__; end
+  def test_check_098; mock __method__; end
 end
-
