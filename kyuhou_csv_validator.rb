@@ -1006,8 +1006,8 @@ def main
         next
       end
       check_methods = validator.methods.select { |method| /check_\d\d\d/ =~ method }
-      check_methods.each.with_index do |check, i|
-        validator.send(check, (lineno + 1), field_data[i])
+      check_methods.each.with_index do |check_id, i|
+        validator.send(check_id, (lineno + 1), field_data[i])
       end
       validator.errors.each do |error|
         output.write error[0].encode("cp932")
