@@ -994,7 +994,7 @@ def main
     input = File.open(file, "r:cp932")
     output = File.open("#{file}.error.log", "wb")
     input.each_line.with_index do |line, lineno|
-      kdv = KyuhouCsvValidator.new
+      validator = KyuhouCsvValidator.new
       begin
         field_data = line.split(",")
       rescue
@@ -1005,11 +1005,11 @@ def main
         output.write "#{lineno + 1}:項目数エラー\n".encode("cp932")
         next
       end
-      check_methods = kdv.methods.select { |method| /check_\d\d\d/ =~ method }
+      check_methods = validator.methods.select { |method| /check_\d\d\d/ =~ method }
       check_methods.each.with_index do |check, i|
-        kdv.send(check, (lineno + 1), field_data[i])
+        validator.send(check, (lineno + 1), field_data[i])
       end
-      kdv.errors.each do |error|
+      validator.errors.each do |error|
         output.write error[0].encode("cp932")
         output.write "\tvalue:"
         output.write error[1] unless error[1] == "\n"

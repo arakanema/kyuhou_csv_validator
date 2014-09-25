@@ -6,7 +6,7 @@ require "test/unit"
 
 class KyuhouCsvValidatorTest < Test::Unit::TestCase
   def setup
-    @kd = KyuhouCsvValidator.new
+    @validator = KyuhouCsvValidator.new
     @lineno = 0
     @fixtures = {
       check_001: '318',
@@ -113,7 +113,7 @@ class KyuhouCsvValidatorTest < Test::Unit::TestCase
   def mock(method_name)
     check_id = method_name.to_s.split('_')[1..-1].join('_')
     fixture = @fixtures[check_id.to_sym]
-    assert_equal false, @kd.send(check_id, @lineno, fixture),
+    assert_equal false, @validator.send(check_id, @lineno, fixture),
       "fixture => #{fixture}"
   end
 
