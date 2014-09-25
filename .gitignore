@@ -2,4 +2,4 @@
 *.log
 *.txt
 *.dat
-
+Gemfile.lock
