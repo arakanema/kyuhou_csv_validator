@@ -2,6 +2,6 @@
 source "https://rubygems.org"
 
 gem "test-unit"
-gem "ocra"
-gem "io-console"
+# gem "ocra"
+# gem "io-console"
 
