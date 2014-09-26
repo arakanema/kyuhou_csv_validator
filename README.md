@@ -20,7 +20,7 @@ This software is released under the MIT License, see LICENSE.
 1. 同じフォルダにチェックしたいファイルをコピーする
 1. kyuhou\_data\_validator.rb を実行する
 1. ファイル名.error.log が作られる
-1. Excel or メモ帳 ファイルを開く
+1. Excel or メモ帳 でファイルを開く
 1. エラー箇所を確認
 
 ※チェック対象ファイルの拡張子は \*.csv, \*.txt, \*.dat を想定
