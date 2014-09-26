@@ -6,7 +6,7 @@ require "test/unit"
 
 class KyuhouCsvValidatorTest < Test::Unit::TestCase
   def setup
-    @validator = KyuhouCsvValidator.new
+    @validator = KyuhouCsvValidator.new(nil)
     @lineno = 0
     @fixtures = {
       check_001: '318',
@@ -14,7 +14,7 @@ class KyuhouCsvValidatorTest < Test::Unit::TestCase
       check_003: '12345あ',
       check_004: '東京 都千代田区永田町二丁目ああああああああああああああああ',
       check_005: 'ｆｊｄａｏｉｊｆｏａｊｆ  ｏａｊｆａｊｏｆａｆ',
-      check_006: '0120-123-456A',
+      check_006: '12345 78--9012345',
       check_007: '1234567890a39999',
       check_008: 'fa  ',
       check_009: 'ba   aaa',
@@ -56,7 +56,7 @@ class KyuhouCsvValidatorTest < Test::Unit::TestCase
       check_045: '00',
       check_046: '14',
       check_047: '43',
-      check_048: '-',
+      check_048: '　',
       check_049: '8',
       check_050: '8',
       check_051: '7',
@@ -103,7 +103,7 @@ class KyuhouCsvValidatorTest < Test::Unit::TestCase
       check_092: '2',
       check_093: '3',
       check_094: '5',
-      check_095: 'ｱｲｳｴｵ ｶｷあ',
+      check_095: 'ゼンカク モジ',
       check_096: 'Ａ12345',
       check_097: '1234567',
       check_098: '123 56-890123',
@@ -111,10 +111,13 @@ class KyuhouCsvValidatorTest < Test::Unit::TestCase
   end
 
   def mock(method_name)
-    check_id = method_name.to_s.split('_')[1..-1].join('_')
-    fixture = @fixtures[check_id.to_sym]
-    assert_equal false, @validator.send(check_id, @lineno, fixture),
-      "fixture => #{fixture}"
+    check_id = method_name.to_s.split('_')[1..-1].join('_').to_sym
+    fixture = @fixtures[check_id].encode('cp932')
+    assert_equal(
+      false,
+      @validator.validate(check_id, fixture, @lineno),
+      "fixture => #{fixture.encode('utf-8')}"
+    )
   end
 
   def test_check_001; mock __method__; end
