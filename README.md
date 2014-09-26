@@ -7,29 +7,31 @@
 [![Build Status](https://travis-ci.org/arakanema/kyuhou_csv_validator.svg?branch=master)](https://travis-ci.org/arakanema/kyuhou_csv_validator)
 
 ## About
-[eLTAX-各種ドキュメント-仕様書](http://www.eltax.jp/www/contents/1403107599834/index.html#dlCSV)に掲載してある、CSVレイアウト仕様書（給与支払報告書）に合致したデータであることを検証するためのツールです。
-
-あくまで、CSVレイアウト仕様書に合致するかどうか？を検証するツールですので、取込み側システム個別の仕様については考慮されていません。
+[eLTAX-各種ドキュメント-仕様書](http://www.eltax.jp/www/contents/1403107599834/index.html#dlCSV)に掲載してある、CSVレイアウト仕様書（給与支払報告書）に合致したデータであることを検証するためのツール.
 
 ## License
-[MITライセンス](http://ja.wikipedia.org/wiki/MIT_License)にて公開していますので、利用者の責任にて必要に応じ改変しご利用ください。  
+[MITライセンス](http://ja.wikipedia.org/wiki/MIT_License)  
 
 This software is released under the MIT License, see LICENSE.
 
 ## Usage
-利用方法は以下の通りです。
+1. 作業用フォルダを作成
+1. 作業用フォルダに kyuhou\_data\_validator.rb を置く
+1. 同じフォルダにチェックしたいファイルをコピーする
+1. kyuhou\_data\_validator.rb を実行する
+1. ファイル名.error.log が作られる
+1. Excel or メモ帳 ファイルを開く
+1. エラー箇所を確認
 
-作業用フォルダを作成し、その中に kyuhou\_data\_validator.rb を入れます。同じフォルダにチェックしたいファイルをコピーして置きます。  
-その状態で kyuhou\_data\_validator.rb を実行すると、ファイル名.error.log を生成しますので、メモ帳などで開いてエラー箇所を確認してください。
+※チェック対象ファイルの拡張子は \*.csv, \*.txt, \*.dat を想定
 
-※チェック対象ファイルの拡張子は \*.csv, \*.txt, \*.dat を想定しています。
+\*.error.log の内容は以下のとおり
 
-\*.error.log の内容は以下のようになります。
+    何行目|チェック番号|チェック内容|エラーパターン|データ
 
-    エラーとなったデータの行数：エラーとなった項目番号：エラーとなったデータ
-
-※Ruby2.0以上 が使える環境を前提としていますが、Rubyが使えない方のために、[ocra](http://rubygems.org/gems/ocra) にてexe化したファイルも合わせて置いておきます。
+※Rubyインタプリタが使えない人用に、[ocra](http://rubygems.org/gems/ocra) にてexe化したファイルも合わせてコミットしている.  
+　利用方法は上記 .rb を .exe と読み替えてください.
 
 ## Contact
-バグや機能改善などご提案があれば、Issue, PullRequest, [問い合わせフォーム](https://drive.google.com/open?id=1oSCqvtAe9WDst_mJGI5POfdLlk_33UVOimLE9WPYI0k&authuser=0) にて報告ください。
+Issue, PullRequest, [問い合わせフォーム](https://drive.google.com/open?id=1oSCqvtAe9WDst_mJGI5POfdLlk_33UVOimLE9WPYI0k&authuser=0) にて.
 
