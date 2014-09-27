@@ -20,7 +20,7 @@ class KyuhouCsvValidator
       :msg      => "支払調書等の種類315であること 必須",
       :must     => true,
       :pattern  => /^315$/,
-      :max_size => 315,
+      :max_size => 3,
       :range    => nil,
     },
     check_002: {
@@ -103,7 +103,7 @@ class KyuhouCsvValidator
     check_013: {
       :msg      => "支払を受ける者－国外住居表示 数字1 0~1",
       :must     => false,
-      :pattern  => /^0|1$/,
+      :pattern  => /^(0|1)*$/,
       :max_size => 1,
       :range    => nil,
     },
