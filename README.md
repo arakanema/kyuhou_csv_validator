@@ -1,7 +1,7 @@
 
 # kyuhou_csv_validator
 
-給報CSVの検証ツール
+給与支払報告書（総務省通達形式）CSVの検証ツール
 
 ## Code Status
 [![Build Status](https://travis-ci.org/arakanema/kyuhou_csv_validator.svg?branch=master)](https://travis-ci.org/arakanema/kyuhou_csv_validator)
@@ -29,9 +29,9 @@ This software is released under the MIT License, see LICENSE.
 
     何行目|チェック番号|チェック内容|エラーパターン|データ
 
-※Rubyインタプリタが使えない人用に、[ocra](http://rubygems.org/gems/ocra) にてexe化したファイルも合わせてコミットしている.  
-　利用方法は上記 .rb を .exe と読み替えてください.
+※Rubyインタプリタが使えない環境用に、[ocra](http://rubygems.org/gems/ocra) にてexe化したファイルも合わせてコミットしている.  
+　exe形式の利用方法は上記 .rb を .exe と読み替え.
 
 ## Contact
-Issue, PullRequest, [問い合わせフォーム](https://drive.google.com/open?id=1oSCqvtAe9WDst_mJGI5POfdLlk_33UVOimLE9WPYI0k&authuser=0) にて.
+Issue, PullRequest, [問い合わせフォーム](https://drive.google.com/open?id=1oSCqvtAe9WDst_mJGI5POfdLlk_33UVOimLE9WPYI0k&authuser=0) より.
 
