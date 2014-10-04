@@ -1,10 +1,10 @@
 # coding: utf-8
 
-VERSION = '20141001'
+VERSION = '20141004'
 
 class KyuhouCsvValidator
 
-  attr_reader :prepare_err
+  attr_reader :prepare_err, :eltax_data
 
   OK      = true
   NG      = false
@@ -708,16 +708,24 @@ class KyuhouCsvValidator
   def initialize(log_fd)
     @logging_to  = log_fd
     @prepare_err = nil
+    @eltax_data  = false
   end
 
   def prepare_validate?(line)
     begin
-      size = line.split(',').size
+      size = line.split(/@/).size
+      @eltax_data = true if size == 2
     rescue
       @prepare_err = :check_enc
       return false
     end
-    unless size == 98
+    data = ""
+    if @eltax_data
+      data = line.split(/@/)[1]
+    else
+      data = line
+    end
+    unless data.split(/,/).size == 98
       @prepare_err = :check_cnt
       return false
     end
@@ -793,7 +801,12 @@ def main
         validator.logging(validator.prepare_err, '', lineno + 1, '検証不可能')
         next
       end
-      line.split(",").each.with_index do |data, index|
+      if validator.eltax_data
+        target_data = line.split(/@/)[1]
+      else
+        target_data = line
+      end
+      target_data.split(/,/).each.with_index do |data, index|
         check_id = "check_#{sprintf('%03d', index + 1)}".to_sym
         validator.validate(check_id, data, lineno + 1)
       end
@@ -827,8 +840,9 @@ def show_info(version)
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 
-  version : #{version}
-  https://github.com/arakanema/kyuhou_csv_validator
+  - kyuhou_csv_validator.rb
+    - version : #{version}
+    - https://github.com/arakanema/kyuhou_csv_validator
 
   INFO
   puts info
